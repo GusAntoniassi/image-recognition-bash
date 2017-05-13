@@ -1,0 +1,5 @@
+curl -v -X POST \
+-H "Content-Type: multipart/form-data" \
+-F "images_file=@$input_file" \
+-o "$output_file" \
+"https://gateway-a.watsonplatform.net/visual-recognition/api/v3/classify?api_key=<API_KEY>&version=2016-05-20"

@@ -1,0 +1,17 @@
+curl -v -X POST \
+-H "Content-Type: multipart/form-data" \
+-H "Authorization: Bearer <ACCESS_TOKEN>" \
+-o "$output_file" \
+-d @- https://api.clarifai.com/v2/models/aaa03c23b3724a16a56b629203edc62c/outputs << FILEIN
+    {
+      "inputs": [
+        {
+          "data": {
+            "image": {
+              "base64": "$(base64 $input_file)"
+            }
+          }
+        }
+      ]
+    }
+FILEIN

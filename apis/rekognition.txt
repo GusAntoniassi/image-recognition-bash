@@ -1,0 +1,6 @@
+aws s3 cp $input_file s3://<BUCKET_NAME>/ --acl public-read;
+aws rekognition detect-labels \
+  --image '{"S3Object":{"Bucket":"<BUCKET_NAME>","Name":"'"$image"'"}}' \
+  --region us-east-1 \
+  --profile <PROFILE_NAME> > $output_file;
+aws s3 rm s3://<PROFILE_NAME>/$image;

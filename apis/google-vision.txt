@@ -1,0 +1,20 @@
+curl -v -X POST \
+-H "Content-Type: application/json" \
+-o "$output_file" \
+-d @- https://vision.googleapis.com/v1/images:annotate?key=<API_KEY> << FILEIN
+{
+  "requests": [
+    {
+      "features": [
+        {
+          "type": "LABEL_DETECTION",
+          "maxResults": 10
+        }
+      ],
+      "image": {
+          "content": "$(base64 $input_file)"
+      }
+    }
+  ]
+}
+FILEIN

@@ -1,0 +1,6 @@
+curl -v -X POST \
+-H "Content-Type: multipart/form-data" \
+-H "Ocp-Apim-Subscription-Key: <API_KEY>" \
+-F "data=@$input_file" \
+-o "$output_file" \
+"https://westus.api.cognitive.microsoft.com/vision/v1.0/analyze?visualFeatures=categories,tags,description,color&details=celebrities,landmarks"
